@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OHI Admin - Workplace Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#e0e3e4",
+                        "inverse-primary": "#a3cddf",
+                        "tertiary-container": "#523012",
+                        "secondary": "#28657a",
+                        "on-secondary-fixed": "#001f29",
+                        "tertiary": "#381b01",
+                        "secondary-fixed-dim": "#95cfe7",
+                        "tertiary-fixed-dim": "#f1bc93",
+                        "on-surface": "#181c1d",
+                        "primary-fixed-dim": "#a3cddf",
+                        "surface-bright": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3132",
+                        "surface-tint": "#3b6474",
+                        "secondary-container": "#abe5fe",
+                        "outline-variant": "#c1c7cb",
+                        "secondary-fixed": "#b9eaff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "surface-dim": "#d7dadb",
+                        "surface": "#f7fafb",
+                        "outline": "#71787c",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#2b687d",
+                        "on-background": "#181c1d",
+                        "surface-container-high": "#e5e9ea",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdcc3",
+                        "primary": "#002632",
+                        "primary-container": "#0f3d4c",
+                        "on-primary-container": "#7fa8b9",
+                        "on-tertiary-fixed-variant": "#633e1f",
+                        "primary-fixed": "#bfe9fc",
+                        "background": "#f7fafb",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#224c5b",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-low": "#f1f4f5",
+                        "on-surface-variant": "#41484b",
+                        "surface-container": "#ebeeef",
+                        "on-secondary-fixed-variant": "#004d61",
+                        "on-primary-fixed": "#001f29",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#c99771",
+                        "surface-container-highest": "#e0e3e4"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "touch-target": "48px",
+                        "unit": "8px",
+                        "card-padding": "24px",
+                        "container-margin": "24px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "display": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.01em", fontWeight: "500" }]
+                    },
+                    boxShadow: {
+                        'level-1': '0px 4px 20px rgba(15, 61, 76, 0.05)',
+                        'level-2': '0px 10px 30px rgba(15, 61, 76, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafb; color: #181c1d; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Pulse Animation for Map Markers */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+        .marker-pulse::before {
+            content: '';
+            position: absolute;
+            left: -50%; top: -50%; width: 200%; height: 200%;
+            background-color: inherit;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+    </style>
+<script src="../OHI-KNOWLEDGE/knowledge-base.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-engine.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-ui-integration.js"></script>
+</head>
+<body class="bg-background flex flex-col md:flex-row min-h-screen antialiased">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen fixed left-0 top-0 py-card-padding bg-surface border-r border-outline-variant w-64 z-50">
+<div class="px-card-padding mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary">OHI Admin</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Precision Health Intel</p>
+</div>
+<ul class="flex-1 flex flex-col gap-2 px-gutter">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors min-h-[48px]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors min-h-[48px]" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-label-md font-label-md">Worker Directory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary bg-secondary-container/30 font-bold border-r-4 border-primary transition-transform translate-x-1 min-h-[48px]" href="#">
+<span class="material-symbols-outlined fill">factory</span>
+<span class="text-label-md font-label-md">Workplace Intel</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors min-h-[48px]" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-label-md font-label-md">Alerts</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant transition-colors min-h-[48px]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="px-card-padding mt-auto flex items-center gap-3 pt-6 border-t border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface">Admin Profile</span>
+</div>
+</nav>
+<!-- Main Content Area Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 w-full max-w-full overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface shadow-sm sticky top-0 z-40 w-full px-card-padding h-touch-target flex justify-between items-center border-b border-outline-variant/50">
+<div class="md:hidden">
+<span class="text-headline-md font-headline-md font-extrabold text-primary">OHI</span>
+</div>
+<div class="hidden md:block"></div> <!-- Spacer for flex layout on desktop -->
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-primary hover:bg-surface-variant px-3 py-2 rounded-lg transition-colors h-touch-target">
+<span class="material-symbols-outlined">language</span>
+<div class="flex flex-col items-start leading-none">
+<span class="text-label-sm font-label-sm">English | தமிழ்</span>
+</div>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden md:hidden border border-outline-variant">
+<span class="material-symbols-outlined text-on-primary-container text-sm w-full h-full flex items-center justify-center">person</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-card-padding md:p-8 max-w-[1440px] mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="inline-flex items-center gap-2 bg-secondary-container/20 text-secondary border border-secondary/20 px-3 py-1 rounded-full mb-3">
+<span class="material-symbols-outlined text-[16px]">science</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider font-bold">SIMULATED DATA — MVP DEMONSTRATION</span>
+</div>
+<h2 class="text-display font-display text-primary">Workplace Intelligence</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2 max-w-2xl">Regional overview of operational risk and worker exposure metrics across all monitored industrial sites.</p>
+</div>
+<div class="flex gap-3">
+<button class="h-touch-target px-6 rounded-lg border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Dashboard Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-container-margin">
+<!-- Regional Map Visualization (Spans 8 columns on large screens) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-level-1 border border-outline-variant overflow-hidden flex flex-col min-h-[500px]">
+<div class="p-5 border-b border-outline-variant bg-surface flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-primary">Regional Risk Topology</h3>
+<span class="material-symbols-outlined text-on-surface-variant">map</span>
+</div>
+<div class="relative flex-1 w-full bg-surface-variant" data-location="Industrial Region Map" style="">
+<!-- Simulated Map Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-multiply" data-alt="A highly detailed, modern, low-contrast topographical map of an industrial region. The map uses a sleek, light-mode corporate palette of soft whites, pale cool grays, and muted teal outlines to represent terrain and infrastructure. The aesthetic is clean, minimalist, and data-driven, suitable for a professional analytics dashboard, avoiding any cluttered real-world satellite imagery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAocnCQzSAot8JaIKXiGQ0Z7IbeSMVGSUJIRpR0Tg-ryhtrK0cYZmsY3RcoJT6Rqn-jQoMV2H5YtcYVPMZO4cIdX40mHk_vJlrG0xbZateXPZ8XNJoiGWlDOQflokKu_Q5OrVU0t_MiHYgvzAoezcnxGevn5VdwFv6eKTc1FHSVjMQekHPxdU3nWvLEUqpxiWgklEihLJwIq0c7EjuVEQqCg8GRT3Qup6X1xoMJvm_SSkhDsPObIqZeWw')"></div>
+<!-- Simulated Overlay Data -->
+<div class="absolute inset-0 p-4">
+<!-- Marker 1: Quarry A (Elevated Risk) -->
+<div class="absolute top-[30%] left-[25%] flex flex-col items-center group cursor-pointer">
+<div class="w-4 h-4 bg-[#facc15] rounded-full marker-pulse relative shadow-md border-2 border-white"></div>
+<div class="mt-2 bg-surface-container-lowest px-3 py-1.5 rounded shadow-lg border border-outline-variant text-center opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-label-md font-label-md text-primary font-bold">Quarry A</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Elevated Risk</p>
+</div>
+</div>
+<!-- Marker 2: Fabrication C (Critical Risk) -->
+<div class="absolute top-[60%] left-[55%] flex flex-col items-center group cursor-pointer">
+<div class="w-5 h-5 bg-error rounded-full marker-pulse relative shadow-md border-2 border-white"></div>
+<div class="mt-2 bg-surface-container-lowest px-3 py-1.5 rounded shadow-lg border border-outline-variant text-center opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-label-md font-label-md text-primary font-bold">Fabrication C</p>
+<p class="text-label-sm font-label-sm text-error">Critical Risk (5 Alerts)</p>
+</div>
+</div>
+<!-- Legend -->
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest/90 backdrop-blur-sm p-4 rounded-lg border border-outline-variant shadow-sm">
+<h4 class="text-label-sm font-label-sm text-on-surface-variant mb-2 uppercase tracking-wider">Risk Severity</h4>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-[#4ade80]"></div><span class="text-label-sm font-label-sm text-on-surface">Low (Baseline)</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-[#facc15]"></div><span class="text-label-sm font-label-sm text-on-surface">Elevated</span></div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-error"></div><span class="text-label-sm font-label-sm text-on-surface">Critical Actions Required</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Summary Metrics -->
+<div class="lg:col-span-4 flex flex-col gap-container-margin">
+<!-- Alert Status Card -->
+<div class="bg-error-container/20 rounded-xl p-card-padding border border-error-container shadow-level-1">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-headline-md font-headline-md text-on-error-container">Active Alerts</h3>
+<div class="w-10 h-10 rounded-full bg-error text-white flex items-center justify-center">
+<span class="material-symbols-outlined">warning</span>
+</div>
+</div>
+<div class="text-display font-display text-on-error-container">9</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Across 4 monitored sites today.</p>
+<button class="mt-4 w-full h-touch-target bg-surface-container-lowest text-on-error-container border border-error-container rounded-lg font-label-md text-label-md hover:bg-error-container/40 transition-colors flex items-center justify-center gap-2">
+                            Review Critical Alerts
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Network Stats -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding shadow-level-1 border border-outline-variant flex-1">
+<h3 class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider mb-6">Network Health Overview</h3>
+<div class="flex flex-col gap-6">
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface">Total Workforce Monitored</span>
+<span class="text-headline-md font-headline-md text-primary">737</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1 text-right">85% adoption rate</p>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface">Avg. Screening Compliance</span>
+<span class="text-headline-md font-headline-md text-primary">92%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#4ade80] w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Site Specific Breakdown List -->
+<div class="mt-container-margin">
+<h3 class="text-headline-lg font-headline-lg text-primary mb-6">Site Risk Breakdown</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- Site Card: Quarry A -->
+<div class="bg-surface-container-lowest rounded-xl shadow-level-1 border border-outline-variant p-5 hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-headline-md font-headline-md text-primary">Quarry A</h4>
+<span class="material-symbols-outlined text-outline">terrain</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Workers</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold">142</span>
+</div>
+<div class="flex flex-col gap-1 border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Primary Exposure</span>
+<span class="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-label-sm font-label-sm text-on-surface w-fit">
+<span class="material-symbols-outlined text-[14px]">air</span> High Dust
+                                </span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Screening Risk</span>
+<span class="text-body-md font-body-md text-[#d97706] font-bold">Elevated</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Alerts</span>
+<div class="w-8 h-8 rounded-full bg-[#fef3c7] text-[#d97706] flex items-center justify-center font-bold text-label-md">3</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Site Card: Construction B -->
+<div class="bg-surface-container-lowest rounded-xl shadow-level-1 border border-outline-variant p-5 hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-headline-md font-headline-md text-primary">Construction B</h4>
+<span class="material-symbols-outlined text-outline">construction</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Workers</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold">85</span>
+</div>
+<div class="flex flex-col gap-1 border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Primary Exposure</span>
+<span class="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-label-sm font-label-sm text-on-surface w-fit">
+<span class="material-symbols-outlined text-[14px]">vibration</span> Noise/Vibration
+                                </span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Screening Risk</span>
+<span class="text-body-md font-body-md text-primary font-semibold">Moderate</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Alerts</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant text-on-surface flex items-center justify-center font-bold text-label-md">1</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Site Card: Fabrication C -->
+<div class="bg-surface-container-lowest rounded-xl shadow-level-1 border border-error-container p-5 hover:shadow-level-2 transition-shadow relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-error"></div>
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-headline-md font-headline-md text-primary">Fabrication C</h4>
+<span class="material-symbols-outlined text-error">precision_manufacturing</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Workers</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold">210</span>
+</div>
+<div class="flex flex-col gap-1 border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Primary Exposure</span>
+<span class="inline-flex items-center gap-1 bg-error-container/30 px-2 py-1 rounded text-label-sm font-label-sm text-error w-fit">
+<span class="material-symbols-outlined text-[14px]">science</span> Chemical/Fumes
+                                </span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Screening Risk</span>
+<span class="text-body-md font-body-md text-error font-bold">Critical</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Alerts</span>
+<div class="w-8 h-8 rounded-full bg-error text-white flex items-center justify-center font-bold text-label-md">5</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Site Card: Textile D -->
+<div class="bg-surface-container-lowest rounded-xl shadow-level-1 border border-outline-variant p-5 hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-headline-md font-headline-md text-primary">Textile D</h4>
+<span class="material-symbols-outlined text-outline">checkroom</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Workers</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold">300</span>
+</div>
+<div class="flex flex-col gap-1 border-b border-surface-container-high pb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Primary Exposure</span>
+<span class="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-label-sm font-label-sm text-on-surface w-fit">
+<span class="material-symbols-outlined text-[14px]">blur_on</span> Particulate
+                                </span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Screening Risk</span>
+<span class="text-body-md font-body-md text-[#4ade80] font-bold">Low</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Alerts</span>
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-md">0</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

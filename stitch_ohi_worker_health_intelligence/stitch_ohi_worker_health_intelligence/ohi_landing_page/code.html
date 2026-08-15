@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OHI - Occupational Health Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e0e3e4",
+                      "inverse-primary": "#a3cddf",
+                      "tertiary-container": "#523012",
+                      "secondary": "#28657a",
+                      "on-secondary-fixed": "#001f29",
+                      "tertiary": "#381b01",
+                      "secondary-fixed-dim": "#95cfe7",
+                      "tertiary-fixed-dim": "#f1bc93",
+                      "on-surface": "#181c1d",
+                      "primary-fixed-dim": "#a3cddf",
+                      "surface-bright": "#f7fafb",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2d3132",
+                      "surface-tint": "#3b6474",
+                      "secondary-container": "#abe5fe",
+                      "outline-variant": "#c1c7cb",
+                      "secondary-fixed": "#b9eaff",
+                      "on-tertiary-fixed": "#2f1500",
+                      "surface-dim": "#d7dadb",
+                      "surface": "#f7fafb",
+                      "outline": "#71787c",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#2b687d",
+                      "on-background": "#181c1d",
+                      "surface-container-high": "#e5e9ea",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffdcc3",
+                      "primary": "#002632",
+                      "primary-container": "#0f3d4c",
+                      "on-primary-container": "#7fa8b9",
+                      "on-tertiary-fixed-variant": "#633e1f",
+                      "primary-fixed": "#bfe9fc",
+                      "background": "#f7fafb",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#224c5b",
+                      "inverse-on-surface": "#eef1f2",
+                      "surface-container-low": "#f1f4f5",
+                      "on-surface-variant": "#41484b",
+                      "surface-container": "#ebeeef",
+                      "on-secondary-fixed-variant": "#004d61",
+                      "on-primary-fixed": "#001f29",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#c99771",
+                      "surface-container-highest": "#e0e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "48px",
+                      "unit": "8px",
+                      "card-padding": "24px",
+                      "container-margin": "24px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<script src="../OHI-KNOWLEDGE/knowledge-base.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-engine.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-ui-integration.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar Shared Component -->
+<header class="fixed docked full-width top-0 z-50 bg-surface dark:bg-surface-container-highest shadow-sm flex justify-between items-center w-full px-card-padding h-touch-target">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary tracking-tight">OHI</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-1">
+<!-- Assuming active state logic isn't applicable here as it's a utility nav, but applying general text styles -->
+<a class="text-label-sm font-label-sm text-primary dark:text-inverse-primary font-bold hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors px-3 py-2 rounded-full flex items-center gap-2" href="#">
+<span>English | தமிழ்</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="language">language</span>
+</a>
+</nav>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[calc(var(--spacing-touch-target)+var(--spacing-container-margin))] px-4 md:px-8 lg:px-12 pb-24">
+<!-- Hero Section - Asymmetric Layout -->
+<section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-container-margin items-center min-h-[70vh]">
+<!-- Typography & Action Left -->
+<div class="lg:col-span-5 flex flex-col gap-6 z-10">
+<div class="space-y-4">
+<h1 class="font-display text-display text-primary leading-tight">
+                        Your Work.<br/>Your Health.<br/>Your Safety.
+                    </h1>
+<h2 class="font-headline-md text-headline-md text-on-surface-variant">
+                        OHI — உங்கள் வேலை. உங்கள் உடல்நலம். உங்கள் பாதுகாப்பு.
+                    </h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                    One worker. Multiple jobs. One cumulative health record. We bridge the gap between industrial safety and medical precision, ensuring your wellbeing follows you wherever you work.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="h-touch-target px-card-padding bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+                        Worker Entry
+                    </button>
+<button class="h-touch-target px-card-padding bg-transparent border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+                        Admin Entry
+                    </button>
+</div>
+</div>
+<!-- Visual Concept Right (Glassmorphism / Bento elements) -->
+<div class="lg:col-span-7 relative h-[500px] w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-[0_10px_30px_rgba(15,61,76,0.12)] border border-outline-variant group">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional industrial worker in clean, modern safety gear including a hard hat and high-vis vest, interacting with a sleek, futuristic transparent digital tablet displaying complex health data graphs and occupational history. The setting is a bright, high-tech industrial facility with soft white lighting. The overall aesthetic is clean, medical-grade modernism infused with industrial practicality, utilizing a color palette of crisp whites, neutral grays, and prominent deep teal accents to convey trust, safety, and technological advancement in occupational health." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD566HtLBfL8Am1gpeiwM-B-bEIH0keaYTahm2REHsXe5_TQH67kSlKe2p8beEXclOCHwWh02e7zt4XCBduCy7mgXHrDUELej03KjZYu6bSJ93MuUHAI7bnXCqmWFpURRQysneyQJs-2AosOnvHH6r1C-wHD0G4B4j-cw9lHJZizlUkWUTJaW-YFVs2ED6knREl5PVbFzAVbLnS0oYdeAY2oC08NJbL7GjKBjILoH_MRPjosPqiGZQeFA"/>
+</div>
+<!-- Glass overlay for data concept -->
+<div class="absolute bottom-6 left-6 right-6 p-6 rounded-xl bg-surface/80 backdrop-blur-md border border-white/40 shadow-lg flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Cumulative Record</p>
+<p class="font-headline-md text-headline-md text-primary mt-1">Unified Health Profile</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="max-w-7xl mx-auto mt-24">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_4px_20px_rgba(15,61,76,0.05)] border border-outline-variant flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 cursor-default">
+<div class="h-12 w-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="history">history</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Continuous Tracking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Your health data moves with you across different employers, creating a complete historical safety profile.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_4px_20px_rgba(15,61,76,0.05)] border border-outline-variant flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 cursor-default">
+<div class="h-12 w-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="warning">warning</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Exposure Alerts</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Proactive monitoring of environmental risks tailored to your specific worksite and historical exposure levels.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_4px_20px_rgba(15,61,76,0.05)] border border-outline-variant flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 cursor-default">
+<div class="h-12 w-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="lock">lock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Sovereignty</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Medical-grade encryption ensures your health records remain private, secure, and entirely under your control.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full py-6 px-card-padding flex flex-col md:flex-row justify-between items-center text-center md:text-left bg-surface-container-lowest dark:bg-surface-container-high border-t border-outline-variant z-10">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">OHI</span>
+<span class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant hidden md:inline ml-2">
+                © 2024 Occupational Health Intelligence. All rights reserved.
+            </span>
+</div>
+<div class="text-body-md font-body-md text-on-surface-variant dark:text-surface-variant md:hidden mb-4">
+            © 2024 Occupational Health Intelligence. All rights reserved.
+        </div>
+<div class="flex flex-wrap justify-center gap-4 md:gap-6">
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant underline hover:text-primary dark:hover:text-inverse-primary transition-opacity" href="#">User Input Disclaimer</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant underline hover:text-primary dark:hover:text-inverse-primary transition-opacity" href="#">Simulated Sensor Data</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant underline hover:text-primary dark:hover:text-inverse-primary transition-opacity" href="#">Screening Result Policy</a>
+</div>
+</footer>
+</body></html>

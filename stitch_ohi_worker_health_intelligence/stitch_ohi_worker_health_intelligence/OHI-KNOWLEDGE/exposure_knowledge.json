@@ -1,0 +1,88 @@
+{
+  "exposures": [
+    {
+      "id": "mineral_dust",
+      "name_en": "Mineral Dust",
+      "name_ta": "கனிம தூசி",
+      "description_en": "Inhalation of stone, silica, sand, brick, concrete or coal dust at worksites.",
+      "description_ta": "வேலை செய்யும் இடங்களில் கல், சிலிக்கா, மணல், செங்கல், கான்கிரீட் அல்லது நிலக்கரி தூசியை சுவாசிப்பது.",
+      "typical_sources": ["Rock drilling", "stone crushing", "concrete cutting", "mining"],
+      "nhanes_variable": "OCQ510",
+      "symptoms_to_monitor": ["cough", "phlegm", "breath_difficulty", "wheeze"],
+      "risk_reasons_en": ["Exposed to mineral dust (e.g. silica, coal) which is a known risk factor for respiratory issues like silicosis."],
+      "risk_reasons_ta": ["சுவாசக் கோளாறுகளை (எ.கா. சிலிகோசிஸ்) ஏற்படுத்தக்கூடிய கனிம தூசிக்கு ஆளாகியுள்ளார்."]
+    },
+    {
+      "id": "organic_dust",
+      "name_en": "Organic Dust",
+      "name_ta": "கரிம தூசி (இயற்கை தூசி)",
+      "description_en": "Inhalation of cotton, grain, wood, flour, or fabric dust.",
+      "description_ta": "பருத்தி, தானியம், மரம், மாவு அல்லது துணி தூசியை சுவாசிப்பது.",
+      "typical_sources": ["Textile spinning", "woodworking", "grain silo handling", "flour mills"],
+      "nhanes_variable": "OCQ530",
+      "symptoms_to_monitor": ["cough", "wheeze", "chest_tightness"],
+      "risk_reasons_en": ["Exposed to organic dusts (e.g. cotton fibers, wood dust) which can trigger occupational asthma or byssinosis."],
+      "risk_reasons_ta": ["பருத்தி இழை அல்லது மரத்தூள் போன்ற கரிம தூசிகளால் ஆஸ்துமா அல்லது பைசினோசிஸ் ஏற்படும் ஆபத்து உள்ளது."]
+    },
+    {
+      "id": "exhaust_fumes",
+      "name_en": "Exhaust Fumes",
+      "name_ta": "புகை மற்றும் உமிழ்வுகள்",
+      "description_en": "Inhalation of diesel exhaust, forklift smoke, or engine fumes in enclosed areas.",
+      "description_ta": "மூடிய இடங்களில் டீசல் புகை, போர்க்லிஃப்ட் புகை அல்லது எஞ்சின் புகையை சுவாசிப்பது.",
+      "typical_sources": ["Warehouse driving", "loading docks", "heavy machinery operation"],
+      "nhanes_variable": "OCQ550",
+      "symptoms_to_monitor": ["cough", "dizziness", "eye_burning"],
+      "risk_reasons_en": ["Exposed to heavy vehicle/diesel exhaust fumes, which can cause acute airway inflammation."],
+      "risk_reasons_ta": ["டீசல் மற்றும் எஞ்சின் புகையால் சுவாசக் குழாய்களில் அலற்சி அல்லது எரிச்சல் ஏற்படலாம்."]
+    },
+    {
+      "id": "other_fumes",
+      "name_en": "Chemical & Metal Fumes",
+      "name_ta": "இரசாயன மற்றும் உலோகப் புகை",
+      "description_en": "Inhalation of welding fumes, solvent vapors, paint spray, or acid mists.",
+      "description_ta": "வெல்டிங் புகை, கரைப்பான்கள், பெயிண்ட் ஸ்ப்ரே அல்லது அமில நீராவியை சுவாசிப்பது.",
+      "typical_sources": ["Metal welding", "soldering", "spray painting", "chemical mixing"],
+      "nhanes_variable": "OCQ570",
+      "symptoms_to_monitor": ["cough", "eye_burning", "dizziness", "breath_difficulty"],
+      "risk_reasons_en": ["Exposed to toxic chemical vapours or metal welding fumes, which may cause metal fume fever or chronic lung damage."],
+      "risk_reasons_ta": ["வெல்டிங் மற்றும் இரசாயன புகைகளால் நுரையீரல் பாதிப்பு அல்லது காய்ச்சல் போன்ற அறிகுறிகள் ஏற்படலாம்."]
+    },
+    {
+      "id": "noise",
+      "name_en": "Loud Noise",
+      "name_ta": "அதிக சத்தம்",
+      "description_en": "Exposure to loud machinery, drills, crushers, or generators without hearing protection.",
+      "description_ta": "காது பாதுகாப்பு உபகரணங்கள் இல்லாமல் இயந்திரங்கள், துளையப்பான்கள் அல்லது ஜெனரேட்டர்களின் அதிக சத்தத்திற்கு ஆளாவது.",
+      "typical_sources": ["Heavy drill operations", "compressors", "crushing plants", "looms"],
+      "nhanes_variable": null,
+      "symptoms_to_monitor": ["hearing_difficulty", "ringing_ears"],
+      "risk_reasons_en": ["Exposed to high noise levels which can lead to noise-induced hearing loss (NIHL) or tinnitus."],
+      "risk_reasons_ta": ["அதிக சத்தத்திற்கு ஆளாகுவதால் கேட்கும் திறன் இழப்பு அல்லது காதில் இரைச்சல் ஏற்படலாம்."]
+    },
+    {
+      "id": "heavy_physical_work",
+      "name_en": "Heavy Physical Work",
+      "name_ta": "கடினமான உடல் உழைப்பு",
+      "description_en": "Lifting heavy materials, continuous stooping, or carrying heavy objects during the shift.",
+      "description_ta": "வேலையின் போது கனமான பொருட்களை தூக்குவது, தொடர்ந்து குனிவது அல்லது சுமப்பது.",
+      "typical_sources": ["Manual bricklaying", "bag carrying", "shoveling", "scaffolding"],
+      "nhanes_variable": "PFQ061E",
+      "symptoms_to_monitor": ["back_pain", "shoulder_pain", "knee_pain", "standing_pain"],
+      "risk_reasons_en": ["Heavy physical load and frequent lifting can lead to cumulative musculoskeletal disorders (MSDs) and joint wear."],
+      "risk_reasons_ta": ["கடினமான உடல் உழைப்பினால் தசைநார் கோளாறுகள் மற்றும் மூட்டு வலி ஏற்பட வாய்ப்புள்ளது."]
+    },
+    {
+      "id": "repetitive_manual_work",
+      "name_en": "Repetitive Manual Work",
+      "name_ta": "தொடர்ச்சியான ஒரே மாதிரியான வேலை",
+      "description_en": "Performing repetitive wrist/hand movements, gripping tools, or pulling levers continuously.",
+      "description_ta": "தொடர்ச்சியாக மணிக்கட்டு/கை அசைவுகள், கருவிகளைப் பிடித்தல் அல்லது நெம்புகோல்களை இழுத்தல் போன்ற வேலைகளைச் செய்வது.",
+      "typical_sources": ["Textile stitching", "weaving", "assembly line packing", "hand welding"],
+      "nhanes_variable": "PFQ061P",
+      "symptoms_to_monitor": ["hand_pain", "numbness_tingling", "grip_weakness"],
+      "risk_reasons_en": ["Repetitive hand/wrist exertion increases risk for nerve compression syndromes like Carpal Tunnel Syndrome."],
+      "risk_reasons_ta": ["தொடர்ச்சியான கை அசைவுகளால் நரம்புகள் அழுத்தப்பட்டு மணிக்கட்டு வலி (கார்பல் டன்னல்) ஏற்படலாம்."]
+    }
+  ]
+}

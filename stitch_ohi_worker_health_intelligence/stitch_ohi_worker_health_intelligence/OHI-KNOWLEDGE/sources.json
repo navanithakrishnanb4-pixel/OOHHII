@@ -1,0 +1,68 @@
+{
+  "sources": [
+    {
+      "id": "NHANES_DEMO_G",
+      "organization": "CDC/NCHS",
+      "dataset": "NHANES 2011-2012 Demographics (DEMO_G)",
+      "year": "2012",
+      "description": "Standard demographic information including age, gender, and language of sample participants.",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DEMO_G.htm"
+    },
+    {
+      "id": "NHANES_OCQ_G",
+      "organization": "CDC/NCHS",
+      "dataset": "NHANES 2011-2012 Occupational Questionnaire (OCQ_G)",
+      "year": "2012",
+      "description": "Self-reported occupational exposures to mineral dusts, organic dusts, exhaust fumes, other fumes, and work duration details.",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/OCQ_G.htm"
+    },
+    {
+      "id": "NHANES_PFQ_G",
+      "organization": "CDC/NCHS",
+      "dataset": "NHANES 2011-2012 Physical Functioning (PFQ_G)",
+      "year": "2012",
+      "description": "Physical functioning limitations, difficulty walking, climbing stairs, stooping, lifting, standing, or grasping objects.",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/PFQ_G.htm"
+    },
+    {
+      "id": "NHANES_RDQ_G",
+      "organization": "CDC/NCHS",
+      "dataset": "NHANES 2011-2012 Respiratory Questionnaire (RDQ_G)",
+      "year": "2012",
+      "description": "Respiratory symptoms including chronic cough, phlegm production, wheezing episodes, wheezing during exercise, and dry cough at night.",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/RDQ_G.htm"
+    },
+    {
+      "id": "NHANES_MCQ_G",
+      "organization": "CDC/NCHS",
+      "dataset": "NHANES 2011-2012 Medical Conditions (MCQ_G)",
+      "year": "2012",
+      "description": "Medical condition histories, doctor-diagnosed chronic bronchitis, emphysema, arthritis, or asthma.",
+      "url": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/MCQ_G.htm"
+    },
+    {
+      "id": "NIOSH_Silicosis_Screening",
+      "organization": "NIOSH",
+      "dataset": "Silicosis Medical Monitoring Guidelines",
+      "year": "2018",
+      "description": "Recommended health screening guidelines for workers exposed to respirable crystalline silica.",
+      "url": "https://www.cdc.gov/niosh/topics/silica/"
+    },
+    {
+      "id": "WHO_Byssinosis_Prevention",
+      "organization": "WHO/ILO",
+      "dataset": "Prevention of Occupational Respiratory Diseases",
+      "year": "2013",
+      "description": "Guidelines for health surveillance of workers exposed to organic cotton and flax dusts.",
+      "url": "https://www.who.int/publications/i/item/9789241505987"
+    },
+    {
+      "id": "OHI_DEMO_SIMULATION",
+      "organization": "OHI Platform Development",
+      "dataset": "Demo / Simulated Workers Profile Data",
+      "year": "2026",
+      "description": "SIMULATED worker profile data created purely for demonstration and UI testing purposes.",
+      "url": ""
+    }
+  ]
+}

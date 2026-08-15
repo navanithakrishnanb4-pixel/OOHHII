@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Trends - OHI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e0e3e4",
+                    "inverse-primary": "#a3cddf",
+                    "tertiary-container": "#523012",
+                    "secondary": "#28657a",
+                    "on-secondary-fixed": "#001f29",
+                    "tertiary": "#381b01",
+                    "secondary-fixed-dim": "#95cfe7",
+                    "tertiary-fixed-dim": "#f1bc93",
+                    "on-surface": "#181c1d",
+                    "primary-fixed-dim": "#a3cddf",
+                    "surface-bright": "#f7fafb",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2d3132",
+                    "surface-tint": "#3b6474",
+                    "secondary-container": "#abe5fe",
+                    "outline-variant": "#c1c7cb",
+                    "secondary-fixed": "#b9eaff",
+                    "on-tertiary-fixed": "#2f1500",
+                    "surface-dim": "#d7dadb",
+                    "surface": "#f7fafb",
+                    "outline": "#71787c",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#2b687d",
+                    "on-background": "#181c1d",
+                    "surface-container-high": "#e5e9ea",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdcc3",
+                    "primary": "#002632",
+                    "primary-container": "#0f3d4c",
+                    "on-primary-container": "#7fa8b9",
+                    "on-tertiary-fixed-variant": "#633e1f",
+                    "primary-fixed": "#bfe9fc",
+                    "background": "#f7fafb",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#224c5b",
+                    "inverse-on-surface": "#eef1f2",
+                    "surface-container-low": "#f1f4f5",
+                    "on-surface-variant": "#41484b",
+                    "surface-container": "#ebeeef",
+                    "on-secondary-fixed-variant": "#004d61",
+                    "on-primary-fixed": "#001f29",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#c99771",
+                    "surface-container-highest": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "unit": "8px",
+                    "card-padding": "24px",
+                    "container-margin": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<script src="../OHI-KNOWLEDGE/knowledge-base.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-engine.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-ui-integration.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative pb-[80px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface shadow-sm fixed w-full top-0 z-50 flex justify-between items-center px-card-padding h-touch-target">
+<div class="text-headline-md font-headline-md font-extrabold text-primary">OHI</div>
+<div class="flex items-center gap-4">
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:block">English | தமிழ்</span>
+<button aria-label="Language" class="hover:bg-surface-variant transition-colors rounded-full p-2 h-touch-target w-touch-target flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">language</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-[48px] px-gutter py-card-padding max-w-3xl mx-auto w-full flex flex-col gap-6">
+<!-- Worker ID Context -->
+<section class="bg-surface-container-lowest shadow-[0_4px_20px_rgba(15,61,76,0.05)] rounded-xl p-card-padding border border-outline-variant flex items-center gap-4">
+<img class="w-16 h-16 rounded-full object-cover shadow-sm border-2 border-surface-container" data-alt="Close up professional portrait of an Indian male industrial worker named Ravi Kumar wearing subtle safety gear, bright modern high key lighting, crisp corporate modern style, clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhbHSC8BYBU-XDuQE9S2X_VUVi1T_gsmprm8PVfXJ_zENFs25N3jqSFz5BM0_hW48SXr95G7ztBnVfzusS9ywHwDyTCWI6YREzqVlS5T8HOO6hENRQk8NuGvA4UtmO_EMDpRdimkU7f9rhJSw-EDa47CWpAIBr3xCW9g-vxQIeYzMf1S2sdAlndNabBdTrA8mxAJBBnn8iMD7JMQr1pJ3igcONK9fEprVDmj_7P5OtH5l_UMBWZlOiGw"/>
+<div class="flex flex-col">
+<h1 class="text-body-lg font-body-lg font-semibold text-on-surface">Ravi Kumar</h1>
+<span class="text-label-md font-label-md text-on-surface-variant">ID: OHI-992-RK</span>
+</div>
+<div class="ml-auto">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</section>
+<!-- Status Badge -->
+<section class="flex items-center gap-3">
+<div class="inline-flex items-center gap-2 bg-error-container/30 text-on-error-container rounded-full px-4 py-2 border border-error-container/50 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-error">visibility</span>
+<span class="text-label-md font-label-md font-semibold text-error">Screening Observation</span>
+</div>
+</section>
+<!-- Health Trend Chart (Custom Recharts Simulation) -->
+<section class="bg-surface-container-lowest shadow-[0_4px_20px_rgba(15,61,76,0.05)] rounded-xl p-card-padding border border-outline-variant relative overflow-hidden flex flex-col">
+<h2 class="text-body-md font-body-md font-semibold text-on-surface mb-6">Symptom Trends</h2>
+<div class="relative h-[220px] w-full mb-4">
+<!-- Safe Zone Background Bands (Tonal Layering approximation of Green/Yellow/Red) -->
+<div class="absolute inset-0 top-[20px] bottom-[30px] flex flex-col z-0 rounded-lg overflow-hidden border border-outline-variant/30">
+<div class="h-1/3 bg-error opacity-5 w-full"></div> <!-- Red Zone -->
+<div class="h-1/3 bg-tertiary opacity-[0.03] w-full"></div> <!-- Yellow Zone -->
+<div class="h-1/3 bg-secondary opacity-5 w-full"></div> <!-- Green Zone -->
+</div>
+<!-- SVG Chart Lines -->
+<svg class="absolute inset-0 w-full h-full z-10 overflow-visible mt-[20px]" preserveaspectratio="none" viewbox="0 0 400 200">
+<!-- Grid Line -->
+<line stroke="#e0e3e4" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="170" y2="170"></line>
+<line stroke="#e0e3e4" stroke-dasharray="4" stroke-width="1" x1="0" x2="400" y1="85" y2="85"></line>
+<!-- Cough Line (Mild -> Moderate) -->
+<path d="M 20 140 C 150 140, 250 70, 380 50" fill="none" stroke="#28657a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="20" cy="140" fill="#ffffff" r="5" stroke="#28657a" stroke-width="2"></circle>
+<circle cx="200" cy="95" fill="#ffffff" r="5" stroke="#28657a" stroke-width="2"></circle>
+<circle cx="380" cy="50" fill="#ffffff" r="5" stroke="#28657a" stroke-width="2"></circle>
+<!-- Breathing Difficulty Line (None -> Mild) -->
+<path d="M 20 180 C 150 180, 250 160, 380 120" fill="none" stroke="#a3cddf" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="20" cy="180" fill="#ffffff" r="5" stroke="#a3cddf" stroke-width="2"></circle>
+<circle cx="200" cy="170" fill="#ffffff" r="5" stroke="#a3cddf" stroke-width="2"></circle>
+<circle cx="380" cy="120" fill="#ffffff" r="5" stroke="#a3cddf" stroke-width="2"></circle>
+<!-- Y-Axis Labels (Implied severity) -->
+<text class="fill-on-surface-variant text-[10px] font-label-sm" text-anchor="end" x="-5" y="55">Mod</text>
+<text class="fill-on-surface-variant text-[10px] font-label-sm" text-anchor="end" x="-5" y="145">Mild</text>
+</svg>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-0 left-0 w-full flex justify-between px-[15px] z-20">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Day 1</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Day 3</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold">Today</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex gap-6 mt-2 justify-center border-t border-outline-variant/30 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="text-label-sm font-label-sm text-on-surface">Cough</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-inverse-primary"></div>
+<span class="text-label-sm font-label-sm text-on-surface">Breathing Difficulty</span>
+</div>
+</div>
+</section>
+<!-- Bilingual Insight -->
+<section class="bg-primary-fixed border-l-4 border-primary p-card-padding rounded-r-xl shadow-sm">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">insights</span>
+<div class="flex flex-col gap-2">
+<p class="text-body-md font-body-md text-on-primary-fixed">Respiratory symptoms have increased over recent check-ins.</p>
+<p class="text-label-md font-label-md text-on-primary-fixed-variant opacity-90">சமீபத்திய பரிசோதனைகளில் சுவாசம் தொடர்பான அறிகுறிகள் அதிகரித்துள்ளன.</p>
+</div>
+</div>
+</section>
+<!-- Simulated Sensor Data -->
+<section class="bg-surface-container-low rounded-xl p-card-padding border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Live Sync</span>
+<span class="animate-pulse w-2 h-2 rounded-full bg-secondary block shadow-[0_0_8px_rgba(40,101,122,0.6)]"></span>
+</div>
+<div class="flex items-center gap-2 mb-5">
+<span class="material-symbols-outlined text-on-surface-variant">sensors</span>
+<h3 class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Simulated Sensor Data</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/50 flex flex-col justify-between h-[90px]">
+<span class="text-label-sm font-label-sm text-on-surface-variant">PM 2.5</span>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg-mobile font-headline-lg-mobile text-error">42.5</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">µg/m³</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/50 flex flex-col justify-between h-[90px]">
+<span class="text-label-sm font-label-sm text-on-surface-variant">PM 10</span>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">68.2</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">µg/m³</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[16px]">warning</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">PM 2.5 levels exceeding safe thresholds in Zone C.</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(15,61,76,0.05)]">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<!-- Health (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-4 py-1 scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-label-sm font-label-sm mt-1 font-bold">Health</span>
+</a>
+<!-- Exposure (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+<span class="text-label-sm font-label-sm mt-1">Exposure</span>
+</a>
+<!-- AI (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+<span class="text-label-sm font-label-sm mt-1">AI</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

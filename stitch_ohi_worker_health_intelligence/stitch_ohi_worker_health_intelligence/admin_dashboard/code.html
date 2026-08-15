@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OHI - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e0e3e4",
+                        "inverse-primary": "#a3cddf",
+                        "tertiary-container": "#523012",
+                        "secondary": "#28657a",
+                        "on-secondary-fixed": "#001f29",
+                        "tertiary": "#381b01",
+                        "secondary-fixed-dim": "#95cfe7",
+                        "tertiary-fixed-dim": "#f1bc93",
+                        "on-surface": "#181c1d",
+                        "primary-fixed-dim": "#a3cddf",
+                        "surface-bright": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3132",
+                        "surface-tint": "#3b6474",
+                        "secondary-container": "#abe5fe",
+                        "outline-variant": "#c1c7cb",
+                        "secondary-fixed": "#b9eaff",
+                        "on-tertiary-fixed": "#2f1500",
+                        "surface-dim": "#d7dadb",
+                        "surface": "#f7fafb",
+                        "outline": "#71787c",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#2b687d",
+                        "on-background": "#181c1d",
+                        "surface-container-high": "#e5e9ea",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdcc3",
+                        "primary": "#002632",
+                        "primary-container": "#0f3d4c",
+                        "on-primary-container": "#7fa8b9",
+                        "on-tertiary-fixed-variant": "#633e1f",
+                        "primary-fixed": "#bfe9fc",
+                        "background": "#f7fafb",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#224c5b",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-low": "#f1f4f5",
+                        "on-surface-variant": "#41484b",
+                        "surface-container": "#ebeeef",
+                        "on-secondary-fixed-variant": "#004d61",
+                        "on-primary-fixed": "#001f29",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#c99771",
+                        "surface-container-highest": "#e0e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "unit": "8px",
+                        "card-padding": "24px",
+                        "container-margin": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Scrollbar for inner content */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c7cb;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #71787c;
+        }
+    </style>
+<script src="../OHI-KNOWLEDGE/knowledge-base.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-engine.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-ui-integration.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen fixed left-0 top-0 py-card-padding bg-surface dark:bg-surface-container-low border-r border-outline-variant w-64 z-20">
+<div class="px-card-padding mb-8">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary">OHI</h1>
+</div>
+<div class="px-card-padding mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-lg">
+<img alt="Admin Avatar" class="w-full h-full object-cover rounded-full" data-alt="A professional headshot of an administrative professional in a modern, well-lit corporate office setting. The lighting is soft and natural, creating a trustworthy and competent mood. The style is hyper-realistic corporate photography, matching the occupational health intelligence system's premium aesthetic. Teal and neutral grey tones subtly appear in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE6m0V34X6sMK5OOwCQatIgkXsTKdKLmULxPrM5RNnYDMVnxZw1nr2_9FzYeF3J2DGYrHI5JyYJQxhO2rgw9Aa8izcbnIVRO9vtfLymjiyAImn94GSdA2sJSzU2reCeAgVPnWbm44HZfnX9DB_BFDer1SH1N_i4Rfj_PqcrR7sE6XK8XLuNWVcTe6Q2_Cm7iRQnrOV0lEElwYQswde6DLjpT8OGedHWHjzNuuFOn2jZNS5PAQYiRt5hQ"/>
+</div>
+<div>
+<p class="text-label-md font-label-md text-on-surface font-semibold">OHI Admin</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Precision Health Intel</p>
+</div>
+</div>
+<ul class="flex flex-col gap-1 w-full px-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-inverse-primary bg-secondary-container/30 dark:bg-secondary-container/10 font-bold border-r-4 border-primary" href="#">
+<span class="material-symbols-outlined fill" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Worker Directory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="factory">factory</span>
+<span class="text-label-md font-label-md">Workplace Intel</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-label-md font-label-md">Alerts</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 h-screen overflow-hidden bg-surface-container-lowest">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-highest shadow-sm flex justify-between items-center w-full px-card-padding h-touch-target z-10 sticky top-0">
+<div class="flex items-center gap-4">
+<div class="md:hidden">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">OHI</h1>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-1" href="#">English | தமிழ்</a>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors text-on-surface-variant dark:text-surface-variant active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto p-card-padding">
+<div class="max-w-[1600px] mx-auto space-y-8 pb-20 md:pb-8">
+<!-- Header & High-Level Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-12 lg:col-span-4 flex flex-col justify-center">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-2">Dashboard</h2>
+<p class="text-on-surface-variant text-body-lg font-body-lg">Occupational Health Overview</p>
+</div>
+<div class="md:col-span-12 lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant flex flex-col justify-between shadow-[0_4px_20px_rgba(15,61,76,0.05)]">
+<span class="text-label-md font-label-md text-on-surface-variant mb-2">Total Workers</span>
+<span class="text-display font-display text-primary">128</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant flex flex-col justify-between shadow-[0_4px_20px_rgba(15,61,76,0.05)] border-l-4 border-l-[#4CAF50]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[#4CAF50] text-[16px]" data-icon="check_circle">check_circle</span>
+<span class="text-label-md font-label-md text-on-surface-variant">Low Risk</span>
+</div>
+<span class="text-headline-lg font-headline-lg text-on-surface">82</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant flex flex-col justify-between shadow-[0_4px_20px_rgba(15,61,76,0.05)] border-l-4 border-l-[#FF9800]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[#FF9800] text-[16px]" data-icon="warning">warning</span>
+<span class="text-label-md font-label-md text-on-surface-variant">Moderate</span>
+</div>
+<span class="text-headline-lg font-headline-lg text-on-surface">34</span>
+</div>
+<div class="bg-error-container/30 rounded-xl p-4 border border-error-container flex flex-col justify-between shadow-[0_4px_20px_rgba(15,61,76,0.05)] border-l-4 border-l-error">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-error text-[16px]" data-icon="error">error</span>
+<span class="text-label-md font-label-md text-error font-semibold">High Risk</span>
+</div>
+<span class="text-headline-lg font-headline-lg text-error font-bold">12</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Priority Workers Table -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_20px_rgba(15,61,76,0.05)] overflow-hidden flex flex-col">
+<div class="p-card-padding border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary">Priority Workers</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Requires immediate medical review</p>
+</div>
+<button class="flex items-center gap-2 text-label-md font-label-md text-secondary hover:bg-secondary-container/50 px-3 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                                Filter
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low/50">
+<th class="p-4 text-label-sm font-label-sm text-on-surface-variant font-semibold">Worker Name</th>
+<th class="p-4 text-label-sm font-label-sm text-on-surface-variant font-semibold">ID</th>
+<th class="p-4 text-label-sm font-label-sm text-on-surface-variant font-semibold">Risk Level</th>
+<th class="p-4 text-label-sm font-label-sm text-on-surface-variant font-semibold">Primary Flag</th>
+<th class="p-4 text-label-sm font-label-sm text-on-surface-variant font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold text-xs">R</div>
+<span class="text-body-md font-body-md font-medium text-on-surface group-hover:text-primary transition-colors">Ravi S.</span>
+</div>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">EMP-8421</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> High
+                                            </span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="pulmonology">pulmonology</span>
+                                            Respiratory
+                                        </td>
+<td class="p-4 text-right">
+<button class="text-secondary hover:text-primary-container p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#FFF3E0] text-[#E65100] flex items-center justify-center font-bold text-xs">K</div>
+<span class="text-body-md font-body-md font-medium text-on-surface group-hover:text-primary transition-colors">Kumar M.</span>
+</div>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">EMP-7193</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#FFF3E0] text-[#E65100]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF9800]"></span> Medium
+                                            </span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#FF9800]" data-icon="airline_seat_flat">airline_seat_flat</span>
+                                            Fatigue
+                                        </td>
+<td class="p-4 text-right">
+<button class="text-secondary hover:text-primary-container p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold text-xs">A</div>
+<span class="text-body-md font-body-md font-medium text-on-surface group-hover:text-primary transition-colors">Anjali T.</span>
+</div>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant">EMP-9022</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> High
+                                            </span>
+</td>
+<td class="p-4 text-body-md font-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="monitor_heart">monitor_heart</span>
+                                            Cardiac
+                                        </td>
+<td class="p-4 text-right">
+<button class="text-secondary hover:text-primary-container p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 bg-surface-container-low/30 border-t border-outline-variant text-center">
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary font-semibold transition-colors" href="#">View All Workers</a>
+</div>
+</div>
+<!-- Regional Trends / Alert Heatmap -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_20px_rgba(15,61,76,0.05)] p-card-padding flex flex-col">
+<div class="mb-4">
+<h3 class="text-headline-md font-headline-md text-primary">Alerts by Occupation</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">30-day frequency</p>
+</div>
+<div class="flex-1 flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface font-medium">Drillers</span>
+<span class="text-label-sm font-label-sm text-error font-bold">42 alerts</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-error h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface font-medium">Heavy Machinery Op.</span>
+<span class="text-label-sm font-label-sm text-[#FF9800] font-bold">28 alerts</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-[#FF9800] h-2 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface font-medium">Site Supervisors</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">15 alerts</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 35%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-end mb-1">
+<span class="text-label-md font-label-md text-on-surface font-medium">Support Staff</span>
+<span class="text-label-sm font-label-sm text-[#4CAF50] font-bold">4 alerts</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-[#4CAF50] h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Workplace Intelligence Chart -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_20px_rgba(15,61,76,0.05)] p-card-padding">
+<div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-4">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary">Workplace Intelligence</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Average screening risk by site</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant"><span class="w-3 h-3 rounded-full bg-error inline-block"></span> High</span>
+<span class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant"><span class="w-3 h-3 rounded-full bg-[#FF9800] inline-block"></span> Med</span>
+<span class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant"><span class="w-3 h-3 rounded-full bg-[#4CAF50] inline-block"></span> Low</span>
+</div>
+</div>
+<!-- Simulated Chart Area -->
+<div class="relative h-64 w-full flex items-end justify-around gap-2 pt-4">
+<!-- Safe Zones Background Bands -->
+<div class="absolute inset-0 z-0 flex flex-col justify-between pointer-events-none">
+<div class="h-1/3 w-full bg-error/5 border-t border-error/10 relative"><span class="absolute left-2 top-2 text-[10px] text-error font-bold opacity-50">CRITICAL THRESHOLD</span></div>
+<div class="h-1/3 w-full bg-[#FF9800]/5 border-t border-[#FF9800]/10"></div>
+<div class="h-1/3 w-full bg-[#4CAF50]/5 border-t border-[#4CAF50]/10"></div>
+</div>
+<!-- Bar: Quarry A -->
+<div class="relative z-10 w-full max-w-[80px] h-full flex flex-col justify-end group">
+<div class="w-full bg-surface-variant rounded-t-md relative h-[80%] overflow-hidden">
+<!-- Data Fill -->
+<div class="absolute bottom-0 left-0 w-full bg-error transition-all duration-500 h-[60%]"></div>
+</div>
+<div class="mt-2 text-center text-label-sm font-label-sm text-on-surface font-medium truncate">Quarry A</div>
+</div>
+<!-- Bar: Construction B -->
+<div class="relative z-10 w-full max-w-[80px] h-full flex flex-col justify-end group">
+<div class="w-full bg-surface-variant rounded-t-md relative h-[65%] overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-[#FF9800] transition-all duration-500 h-[80%]"></div>
+</div>
+<div class="mt-2 text-center text-label-sm font-label-sm text-on-surface font-medium truncate">Const. B</div>
+</div>
+<!-- Bar: Logistics C -->
+<div class="relative z-10 w-full max-w-[80px] h-full flex flex-col justify-end group">
+<div class="w-full bg-surface-variant rounded-t-md relative h-[40%] overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-[#4CAF50] transition-all duration-500 h-[100%]"></div>
+</div>
+<div class="mt-2 text-center text-label-sm font-label-sm text-on-surface font-medium truncate">Logistics C</div>
+</div>
+<!-- Bar: Processing D -->
+<div class="relative z-10 w-full max-w-[80px] h-full flex flex-col justify-end group">
+<div class="w-full bg-surface-variant rounded-t-md relative h-[90%] overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-error transition-all duration-500 h-[75%]"></div>
+</div>
+<div class="mt-2 text-center text-label-sm font-label-sm text-on-surface font-medium truncate">Process D</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(15,61,76,0.05)] border-t border-outline-variant/30">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="medical_services">medical_services</span>
+<span class="text-label-sm font-label-sm mt-1">Health</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-4 py-1 scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined fill text-[24px]" data-icon="warning">warning</span>
+<span class="text-label-sm font-label-sm mt-1 font-bold">Exposure</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="smart_toy">smart_toy</span>
+<span class="text-label-sm font-label-sm mt-1">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

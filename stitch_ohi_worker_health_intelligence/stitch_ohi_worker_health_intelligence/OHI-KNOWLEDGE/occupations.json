@@ -1,0 +1,58 @@
+{
+  "occupations": [
+    {
+      "id": "mining_quarry",
+      "name_en": "Mining / Quarry",
+      "name_ta": "சுரங்கம் / கல் குவாரி",
+      "exposures": ["mineral_dust", "noise", "heavy_physical_work"],
+      "screening_domains": ["respiratory", "hearing", "musculoskeletal"],
+      "physical_workload": "Heavy lifting, standing for long periods, stooping/kneeling, exposure to vibrating tools.",
+      "sources": ["NHANES_OCQ_G", "NIOSH_Silicosis_Screening"]
+    },
+    {
+      "id": "construction",
+      "name_en": "Construction",
+      "name_ta": "கட்டிட வேலை (கட்டுமானம்)",
+      "exposures": ["mineral_dust", "noise", "heavy_physical_work"],
+      "screening_domains": ["musculoskeletal", "hearing", "respiratory"],
+      "physical_workload": "Repetitive lifting, climbing steps, stooping/bending, pushing/pulling heavy objects.",
+      "sources": ["NHANES_OCQ_G", "NHANES_PFQ_G"]
+    },
+    {
+      "id": "welding_fabrication",
+      "name_en": "Welding / Fabrication",
+      "name_ta": "வெல்டிங் மற்றும் மெட்டல் ஃபேப்ரிகேஷன்",
+      "exposures": ["other_fumes", "noise", "radiation_eye_strain"],
+      "screening_domains": ["respiratory", "vision_eye", "hearing", "musculoskeletal"],
+      "physical_workload": "Awkward postures, reaching overhead, holding heavy welding torches, fine gripping.",
+      "sources": ["NHANES_OCQ_G", "OSHA_Welding_Fumes"]
+    },
+    {
+      "id": "textile",
+      "name_en": "Textile",
+      "name_ta": "நெசவு / ஜவுளித் தொழில்",
+      "exposures": ["organic_dust", "noise", "repetitive_manual_work"],
+      "screening_domains": ["respiratory", "musculoskeletal", "hearing"],
+      "physical_workload": "Repetitive manual wrapping, standing for long hours, fine finger grasping, arm pulling.",
+      "sources": ["NHANES_OCQ_G", "WHO_Byssinosis_Prevention"]
+    },
+    {
+      "id": "chemical_industrial",
+      "name_en": "Chemical / Industrial work",
+      "name_ta": "இரசாயன / தொழிற்சாலை வேலை",
+      "exposures": ["exhaust_fumes", "other_fumes", "chemical_contact"],
+      "screening_domains": ["respiratory", "skin", "vision_eye"],
+      "physical_workload": "Handling chemical containers, walking on concrete surfaces, donning full PPE for long hours.",
+      "sources": ["NHANES_OCQ_G", "NIOSH_Occupational_Dermatitis"]
+    },
+    {
+      "id": "other",
+      "name_en": "Other / General Work",
+      "name_ta": "இதர / பொதுவான வேலை",
+      "exposures": [],
+      "screening_domains": ["general_wellbeing"],
+      "physical_workload": "Variable physical demands.",
+      "sources": ["NHANES_DEMO_G"]
+    }
+  ]
+}

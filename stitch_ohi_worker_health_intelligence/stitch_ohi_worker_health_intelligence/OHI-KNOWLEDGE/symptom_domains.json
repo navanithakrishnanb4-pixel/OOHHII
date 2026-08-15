@@ -1,0 +1,68 @@
+{
+  "domains": [
+    {
+      "id": "respiratory",
+      "name_en": "Respiratory Health",
+      "name_ta": "சுவாச ஆரோக்கியம்",
+      "description_en": "Screening for issues related to lungs, breathing, and airway irritation from dust and fumes.",
+      "description_ta": "தூசி மற்றும் புகையால் ஏற்படும் நுரையீரல், சுவாசம் மற்றும் காற்றுப்பாதை எரிச்சல் தொடர்பான பிரச்சனைகளை கண்டறிதல்.",
+      "symptoms": ["cough", "phlegm", "wheeze", "chest_tightness", "breath_difficulty"]
+    },
+    {
+      "id": "musculoskeletal",
+      "name_en": "Musculoskeletal Health",
+      "name_ta": "தசை மற்றும் எலும்பு ஆரோக்கியம்",
+      "description_en": "Screening for body pain, joint stiffness, and physical strain from heavy lifting or standing.",
+      "description_ta": "அதிக எடை தூக்குதல் அல்லது நீண்ட நேரம் நிற்பதால் ஏற்படும் உடல் வலி, மூட்டு வலி மற்றும் உடல் ரீதியான அழுத்தத்தை கண்டறிதல்.",
+      "symptoms": ["back_pain", "hand_pain", "shoulder_pain", "knee_pain", "standing_pain"]
+    },
+    {
+      "id": "neurological_sensory",
+      "name_en": "Neurological & Sensory",
+      "name_ta": "நரம்பியல் மற்றும் உணர்வுத்திறன்",
+      "description_en": "Screening for nerve compression symptoms like numbness, tingling, and grip weakness.",
+      "description_ta": "மரத்துப்போதல், ஊசி குத்துவது போன்ற உணர்வு மற்றும் பிடி பலவீனம் போன்ற நரம்பு அழுத்த அறிகுறிகளை கண்டறிதல்.",
+      "symptoms": ["numbness_tingling", "grip_weakness", "hand_pain"]
+    },
+    {
+      "id": "hearing",
+      "name_en": "Hearing & Noise Impact",
+      "name_ta": "கேள்வித்திறன் மற்றும் சத்தம்",
+      "description_en": "Screening for hearing difficulty and ringing in ears (tinnitus) due to loud workplace machinery.",
+      "description_ta": "வேலை செய்யும் இடத்தில் அதிக சத்தத்தினால் ஏற்படும் கேட்கும் திறன் குறைபாடு மற்றும் காதில் ஒலித்தல் (டினிடஸ்) போன்றவற்றை கண்டறிதல்.",
+      "symptoms": ["hearing_difficulty", "ringing_ears"]
+    },
+    {
+      "id": "vision_eye",
+      "name_en": "Vision & Eye Irritation",
+      "name_ta": "பார்வை மற்றும் கண் எரிச்சல்",
+      "description_en": "Screening for eye burning, watering, or redness from fumes, chemicals, or intense light.",
+      "description_ta": "புகை, இரசாயனங்கள் அல்லது கடுமையான வெளிச்சத்தால் ஏற்படும் கண் எரிச்சல், நீர் வடிதல் அல்லது கண் சிவத்தல் போன்றவற்றை கண்டறிதல்.",
+      "symptoms": ["eye_burning", "eye_watering", "eye_redness"]
+    },
+    {
+      "id": "skin",
+      "name_en": "Skin & Contact Dermatitis",
+      "name_ta": "சரும ஆரோக்கியம்",
+      "description_en": "Screening for skin rashes, itching, or dryness from handling chemicals or raw materials.",
+      "description_ta": "இரசாயனங்கள் அல்லது மூலப்பொருட்களை கையாளுவதால் ஏற்படும் தோல் தடிப்புகள், அரிப்பு அல்லது வறட்சி போன்றவற்றை கண்டறிதல்.",
+      "symptoms": ["skin_rash", "skin_itching", "skin_dryness"]
+    },
+    {
+      "id": "heat_fatigue",
+      "name_en": "Heat & Fatigue",
+      "name_ta": "வெப்பம் மற்றும் சோர்வு",
+      "description_en": "Screening for dehydration, heat cramps, and severe exhaustion in hot work environments.",
+      "description_ta": "வெப்பமான பணிச்சூழலில் நீரிழப்பு, தசைப்பிடிப்பு மற்றும் கடுமையான சோர்வு ஆகியவற்றை கண்டறிதல்.",
+      "symptoms": ["fatigue", "dizziness", "excessive_thirst", "muscle_cramps"]
+    },
+    {
+      "id": "psychosocial_stress",
+      "name_en": "Workplace Stress & Wellbeing",
+      "name_ta": "வேலை அழுத்தமும் நல்வாழ்வும்",
+      "description_en": "Screening for work-related sleep disturbances, anxiety, and general physical fatigue.",
+      "description_ta": "வேலை தொடர்பான தூக்கமின்மை, பதற்றம் மற்றும் பொதுவான உடல் சோர்வு ஆகியவற்றை கண்டறிதல்.",
+      "symptoms": ["stress", "sleep_disturbance", "headache"]
+    }
+  ]
+}

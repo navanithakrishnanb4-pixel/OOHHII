@@ -1,0 +1,14 @@
+{
+  "dataset": "Derived OHI evidence subset from NHANES 2011-2012 public files",
+  "rows": 9756,
+  "columns": 54,
+  "participant_id_removed": true,
+  "source_files": [
+    "DEMO_G",
+    "OCQ_G",
+    "PFQ_G",
+    "RDQ_G",
+    "MCQ_G"
+  ],
+  "important_note": "Evidence/reference dataset only; not a clinically validated risk-label dataset. Respect official NHANES age eligibility, skip patterns, special codes, missingness and sample-weight guidance."
+}

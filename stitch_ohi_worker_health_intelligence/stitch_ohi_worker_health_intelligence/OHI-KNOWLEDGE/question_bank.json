@@ -1,0 +1,249 @@
+{
+  "questions": [
+    {
+      "id": "q_emergency_check",
+      "domain": "respiratory",
+      "text_en": "Are you experiencing severe chest pain, severe difficulty breathing, or coughing up blood?",
+      "text_ta": "நெஞ்சு வலி, கடுமையான மூச்சுத்திணறல் அல்லது இருமலில் இரத்தம் வருகிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்", "is_emergency": true},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை", "is_emergency": false}
+      ],
+      "nhanes_variable": "MCQ040",
+      "trigger": "always_first"
+    },
+    {
+      "id": "q_main_symptom",
+      "domain": "general_wellbeing",
+      "text_en": "What is your main health concern or symptom today?",
+      "text_ta": "இன்று உங்களுக்கு உள்ள முக்கிய உடல்நலப் பிரச்சனை அல்லது அறிகுறி என்ன?",
+      "options": [
+        {"value": "cough", "label_en": "Cough", "label_ta": "இருமல்"},
+        {"value": "body_pain", "label_en": "Body/Back Pain", "label_ta": "உடல்/முதுகு வலி"},
+        {"value": "hand_pain", "label_en": "Hand/Wrist Pain", "label_ta": "கை/மணிக்கட்டு வலி"},
+        {"value": "eye_irritation", "label_en": "Eye Irritation", "label_ta": "கண் எரிச்சல்/நீர் வடிதல்"},
+        {"value": "hearing_difficulty", "label_en": "Hearing Difficulty", "label_ta": "கேட்பதில் சிரமம்"},
+        {"value": "skin_rash", "label_en": "Skin Rash/Itching", "label_ta": "தோல் அரிப்பு/தடிப்பு"},
+        {"value": "fatigue", "label_en": "Extreme Fatigue/Dizziness", "label_ta": "கடுமையான சோர்வு/தலைச்சுற்றல்"},
+        {"value": "none", "label_en": "No Symptoms (Just Check-in)", "label_ta": "அறிகுறிகள் ஏதுமில்லை (வழக்கமான பதிவு)"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "initial"
+    },
+    {
+      "id": "q_cough_present",
+      "domain": "respiratory",
+      "text_en": "Do you have a cough?",
+      "text_ta": "உங்களுக்கு இருமல் இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "RDQ031",
+      "trigger": "cough_domain"
+    },
+    {
+      "id": "q_cough_work_related",
+      "domain": "respiratory",
+      "text_en": "Does the cough become worse while you are working?",
+      "text_ta": "வேலை செய்யும்போது இருமல் அதிகமாகிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "cough_details"
+    },
+    {
+      "id": "q_cough_after_work",
+      "domain": "respiratory",
+      "text_en": "Does the cough continue even after leaving the work area?",
+      "text_ta": "வேலை செய்யும் இடத்தை விட்டு வெளியேறிய பிறகும் இருமல் தொடர்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "cough_details"
+    },
+    {
+      "id": "q_breath_difficulty",
+      "domain": "respiratory",
+      "text_en": "Do you experience breathing difficulty or chest tightness?",
+      "text_ta": "மூச்சு விடுவதில் கஷ்டம் அல்லது நெஞ்சு இறுக்கம் ஏதேனும் உள்ளதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "RDQ070",
+      "trigger": "respiratory_details"
+    },
+    {
+      "id": "q_phlegm_present",
+      "domain": "respiratory",
+      "text_en": "Do you bring up phlegm (sputum) most days?",
+      "text_ta": "பெரும்பாலான நாட்களில் நெஞ்சிலிருந்து சளி வருகிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "RDQ050",
+      "trigger": "respiratory_details"
+    },
+    {
+      "id": "q_back_pain_present",
+      "domain": "musculoskeletal",
+      "text_en": "Do you feel pain in your lower back or shoulders?",
+      "text_ta": "உங்களுக்கு கீழ் முதுகு அல்லது தோள்பட்டையில் வலி இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "PFQ059",
+      "trigger": "body_pain_domain"
+    },
+    {
+      "id": "q_pain_worse_work",
+      "domain": "musculoskeletal",
+      "text_en": "Does your body pain get worse while lifting or carrying heavy objects?",
+      "text_ta": "கனமான பொருட்களை தூக்கும்போதோ அல்லது வேலை செய்யும்போதோ வலி அதிகமாகிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "PFQ061E",
+      "trigger": "musculoskeletal_details"
+    },
+    {
+      "id": "q_pain_improve_rest",
+      "domain": "musculoskeletal",
+      "text_en": "Does the pain get better when you rest or take days off?",
+      "text_ta": "ஓய்வு எடுக்கும்போது அல்லது விடுமுறை நாட்களில் வலி குறைகிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "musculoskeletal_details"
+    },
+    {
+      "id": "q_standing_difficulty",
+      "domain": "musculoskeletal",
+      "text_en": "Do you find standing for long hours (more than 2 hours) very difficult?",
+      "text_ta": "நீண்ட நேரம் (2 மணி நேரத்திற்கு மேல்) நிற்பதில் கடுமையான சிரமம் இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "PFQ061M",
+      "trigger": "musculoskeletal_details"
+    },
+    {
+      "id": "q_hand_pain_details",
+      "domain": "musculoskeletal",
+      "text_en": "Do you feel pain or numbness in your hands, fingers, or wrists?",
+      "text_ta": "உங்களுக்கு கைகள், விரல்கள் அல்லது மணிக்கட்டில் வலி அல்லது மரத்துப்போதல் இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "PFQ061P",
+      "trigger": "hand_pain_domain"
+    },
+    {
+      "id": "q_numbness_tingling",
+      "domain": "neurological_sensory",
+      "text_en": "Do you feel a tingling 'pins and needles' feeling or numbness in your fingers?",
+      "text_ta": "விரல்களில் மரத்துப்போதல் அல்லது ஊசி குத்துவது போன்ற உணர்வு இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "neurological_details"
+    },
+    {
+      "id": "q_grip_weakness",
+      "domain": "neurological_sensory",
+      "text_en": "Do you have difficulty holding small tools or feel weakness in your grip?",
+      "text_ta": "சிறிய கருவிகளைப் பிடிப்பதில் சிரமம் அல்லது கைகளில் பலவீனம் இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": "PFQ061P",
+      "trigger": "neurological_details"
+    },
+    {
+      "id": "q_eye_irritation_details",
+      "domain": "vision_eye",
+      "text_en": "Are you experiencing eye burning, redness, or watering?",
+      "text_ta": "கண்களில் எரிச்சல், நீர் வடிதல் அல்லது கண் சிவந்து போயுள்ளதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "eye_domain"
+    },
+    {
+      "id": "q_hearing_details",
+      "domain": "hearing",
+      "text_en": "Do you have difficulty hearing conversations in your work environment?",
+      "text_ta": "வேலை செய்யும் இடத்தில் மற்றவர்கள் பேசுவதைக் கேட்பதில் சிரமம் உள்ளதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "hearing_domain"
+    },
+    {
+      "id": "q_ringing_ears",
+      "domain": "hearing",
+      "text_en": "Do you hear a ringing or buzzing sound in your ears (tinnitus)?",
+      "text_ta": "காதுகளில் இரைச்சல் அல்லது ரிங் சத்தம் (ரிங்கிங்) கேட்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "hearing_domain"
+    },
+    {
+      "id": "q_skin_details",
+      "domain": "skin",
+      "text_en": "Do you have itching, red rashes, or dry cracks on your skin?",
+      "text_ta": "தோலில் தடிப்புகள், அரிப்பு அல்லது வறண்ட வெடிப்புகள் ஏதேனும் இருக்கிறதா?",
+      "options": [
+        {"value": "yes", "label_en": "Yes", "label_ta": "ஆமாம்"},
+        {"value": "no", "label_en": "No", "label_ta": "இல்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "skin_domain"
+    },
+    {
+      "id": "q_ppe_use",
+      "domain": "general_wellbeing",
+      "text_en": "Do you regularly use Personal Protective Equipment (PPE) like masks, gloves, or earplugs?",
+      "text_ta": "முகமூடி, கையுறைகள் அல்லது காது செருகிகள் போன்ற பாதுகாப்பு உபகரணங்களை (PPE) தொடர்ந்து அணிகிறீர்களா?",
+      "options": [
+        {"value": "always", "label_en": "Always", "label_ta": "எப்போதும்"},
+        {"value": "sometimes", "label_en": "Sometimes", "label_ta": "சில நேரங்களில்"},
+        {"value": "never", "label_en": "Never", "label_ta": "அணிவதில்லை"}
+      ],
+      "nhanes_variable": null,
+      "trigger": "general_details"
+    }
+  ]
+}

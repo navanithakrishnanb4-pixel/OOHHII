@@ -1,0 +1,156 @@
+{
+  "risk_scoring_rules": {
+    "base_score": 10,
+    "emergency_score": 100,
+    "max_score": 100,
+    "min_score": 0,
+    "thresholds": [
+      {
+        "max": 34,
+        "level": "Low concern",
+        "level_ta": "குறைந்த கவலை / சாதாரண நிலை",
+        "action_en": "Continue routine safety practices and PPE usage. Keep monitoring your health.",
+        "action_ta": "வழக்கமான பாதுகாப்பு நடைமுறைகள் மற்றும் PPE-ஐத் தொடரவும். உடல்நலத்தைக் கண்காணித்து வரவும்."
+      },
+      {
+        "min": 35,
+        "max": 54,
+        "level": "Needs attention",
+        "level_ta": "கவனம் தேவை",
+        "action_en": "Review PPE fitting and report any worsening symptoms. Consider a checkup if symptoms persist.",
+        "action_ta": "பாதுகாப்பு உபகரணங்களின் பொருத்தத்தை சரிபார்க்கவும். அறிகுறிகள் நீடித்தால் பரிசோதனை செய்யவும்."
+      },
+      {
+        "min": 55,
+        "max": 79,
+        "level": "Higher concern",
+        "level_ta": "அதிக கவலை / தீவிரக் கண்காணிப்பு",
+        "action_en": "Please visit the on-site clinic or consult a healthcare professional. Review workplace exposures.",
+        "action_ta": "பணிமனை மருத்துவமனை அல்லது மருத்துவரை அணுகவும். வேலை செய்யும் இடத்தில் தூசியைக் குறைக்கவும்."
+      },
+      {
+        "min": 80,
+        "level": "Urgent evaluation recommended",
+        "level_ta": "உடனடி மருத்துவ ஆலோசனை தேவை",
+        "action_en": "Seek immediate professional medical evaluation. Avoid further high-exposure work until checked.",
+        "action_ta": "உடனடியாக மருத்துவரை அணுகி சிகிச்சை பெறவும். பரிசோதனை முடியும் வரை தூசியில் வேலை செய்ய வேண்டாம்."
+      }
+    ],
+    "exposure_symptom_overlap_rules": [
+      {
+        "id": "quarry_dust_cough",
+        "occupation": "mining_quarry",
+        "symptoms": ["cough", "phlegm", "breath_difficulty"],
+        "points": 25,
+        "reason_en": "Respiratory symptom reported in a high dust mining/quarry workspace, indicating risk of mineral dust exposure effects.",
+        "reason_ta": "குவாரி வேலையில் தூசியின் தாக்கத்தால் சுவாசக் கோளாறுக்கான அறிகுறிகள் கண்டறியப்பட்டுள்ளன."
+      },
+      {
+        "id": "welder_fume_eye",
+        "occupation": "welding_fabrication",
+        "symptoms": ["eye_burning", "eye_watering", "eye_redness", "eye_irritation"],
+        "points": 20,
+        "reason_en": "Eye irritation reported by a welder, indicating potential exposure to welding fumes or lack of eye protection.",
+        "reason_ta": "வெல்டிங் வேலையில் கண் எரிச்சல் கண்டறியப்பட்டுள்ளது. பாதுகாப்பு கவசம் அணிவதை உறுதி செய்யவும்."
+      },
+      {
+        "id": "construction_lifting_pain",
+        "occupation": "construction",
+        "symptoms": ["back_pain", "shoulder_pain", "knee_pain", "standing_pain"],
+        "points": 20,
+        "reason_en": "Body or joint pain reported in heavy physical construction work, raising musculoskeletal strain concern.",
+        "reason_ta": "கட்டுமான வேலையில் பளு தூக்குவதால் தசைநார் மற்றும் மூட்டு வலி அழுத்தங்கள் கண்டறியப்பட்டுள்ளன."
+      },
+      {
+        "id": "textile_dust_cough",
+        "occupation": "textile",
+        "symptoms": ["cough", "wheeze", "chest_tightness"],
+        "points": 20,
+        "reason_en": "Cough or chest tightness reported in textile work, indicating potential organic dust (byssinosis) exposure risks.",
+        "reason_ta": "ஜவுளி மற்றும் நெசவுத் தொழிலில் தூசியால் சுவாசக் கோளாறுக்கான அறிகுறிகள் கண்டறியப்பட்டுள்ளன."
+      },
+      {
+        "id": "textile_manual_pain",
+        "occupation": "textile",
+        "symptoms": ["hand_pain", "numbness_tingling", "grip_weakness"],
+        "points": 15,
+        "reason_en": "Repetitive hand/wrist pain in textile assembly work, indicating repetitive strain injury risk.",
+        "reason_ta": "தொடர்ச்சியான தையல்/நெசவு வேலையினால் மணிக்கட்டு நரம்பு அழுத்த வலி அறிகுறிகள் கண்டறியப்பட்டுள்ளன."
+      },
+      {
+        "id": "chemical_fume_cough",
+        "occupation": "chemical_industrial",
+        "symptoms": ["cough", "breath_difficulty", "eye_burning"],
+        "points": 20,
+        "reason_en": "Cough or burning eyes in chemical industrial work, indicating potential chemical fume inhalation or contact.",
+        "reason_ta": "இரசாயனப் புகையினால் கண் எரிச்சல் அல்லது சுவாசக் கோளாறு அறிகுறிகள் கண்டறியப்பட்டுள்ளன."
+      }
+    ],
+    "work_relation_rules": [
+      {
+        "trigger_question": "q_cough_work_related",
+        "answer": "yes",
+        "points": 20,
+        "reason_en": "Symptoms worsen during work, strongly suggesting workplace environmental triggers.",
+        "reason_ta": "வேலை செய்யும்போது அறிகுறிகள் அதிகமாகிறது, இது வேலை செய்யும் இடத்தின் தாக்கத்தை காட்டுகிறது."
+      },
+      {
+        "trigger_question": "q_pain_worse_work",
+        "answer": "yes",
+        "points": 20,
+        "reason_en": "Musculoskeletal pain worsens during physical labor, suggesting work-related strain.",
+        "reason_ta": "வேலை செய்யும்போது வலி அதிகமாகிறது, இது உடல் உழைப்பு அழுத்தத்தை காட்டுகிறது."
+      },
+      {
+        "trigger_question": "q_cough_after_work",
+        "answer": "yes",
+        "points": 10,
+        "reason_en": "Symptoms persist after leaving work, which can indicate cumulative or chronic respiratory reaction.",
+        "reason_ta": "வேலை முடிந்த பிறகும் இருமல் தொடர்கிறது, இது சுவாசப் பாதையில் நீண்டகால எரிச்சலைக் குறிக்கிறது."
+      }
+    ],
+    "severity_rules": [
+      {
+        "trigger_question": "q_breath_difficulty",
+        "answer": "yes",
+        "points": 20,
+        "reason_en": "Reporting shortness of breath or chest tightness is a critical screening marker for lung function concern.",
+        "reason_ta": "நெஞ்சு இறுக்கம் அல்லது மூச்சுத்திணறல் இருப்பது கண்டறியப்பட்டுள்ளது."
+      },
+      {
+        "trigger_question": "q_numbness_tingling",
+        "answer": "yes",
+        "points": 15,
+        "reason_en": "Nerve compression marker (numbness/tingling) reported in extremities.",
+        "reason_ta": "விரல்களில் மரத்துப்போதல் அல்லது நரம்பு அழுத்தத்திற்கான உணர்வு கண்டறியப்பட்டுள்ளது."
+      },
+      {
+        "trigger_question": "q_ringing_ears",
+        "answer": "yes",
+        "points": 10,
+        "reason_en": "Ringing or buzzing in ears (tinnitus) reported, indicating acoustic/noise exposure strain.",
+        "reason_ta": "காதுகளில் இரைச்சல் சத்தம் (tinnitus) கேட்கிறது, இது அதிக சத்தத்தின் தாக்கத்தைக் காட்டுகிறது."
+      }
+    ],
+    "ppe_rules": [
+      {
+        "answer": "never",
+        "points": 15,
+        "reason_en": "Lack of personal protective equipment (PPE) usage increases susceptibility to exposures.",
+        "reason_ta": "பாதுகாப்பு உபகரணங்களை (PPE) அணியாமல் வேலை செய்வது பாதிப்பு அடையும் அபாயத்தை அதிகரிக்கிறது."
+      },
+      {
+        "answer": "sometimes",
+        "points": 5,
+        "reason_en": "Inconsistent personal protective equipment (PPE) usage leaves periods of unprotected exposure.",
+        "reason_ta": "பாதுகாப்பு உபகரணங்களை (PPE) சில நேரங்களில் மட்டுமே அணிவது போதுமான பாதுகாப்பை தராது."
+      },
+      {
+        "answer": "always",
+        "points": -10,
+        "reason_en": "Consistent PPE use helps mitigate exposure risk, reducing overall screening concern.",
+        "reason_ta": "தொடர்ந்து பாதுகாப்பு உபகரணங்களை (PPE) அணிவது பாதிப்பு அடையும் அபாயத்தைக் குறைக்கிறது."
+      }
+    ]
+  }
+}

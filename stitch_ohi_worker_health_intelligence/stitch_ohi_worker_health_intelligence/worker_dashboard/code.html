@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OHI Worker Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e0e3e4",
+                      "inverse-primary": "#a3cddf",
+                      "tertiary-container": "#523012",
+                      "secondary": "#28657a",
+                      "on-secondary-fixed": "#001f29",
+                      "tertiary": "#381b01",
+                      "secondary-fixed-dim": "#95cfe7",
+                      "tertiary-fixed-dim": "#f1bc93",
+                      "on-surface": "#181c1d",
+                      "primary-fixed-dim": "#a3cddf",
+                      "surface-bright": "#f7fafb",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2d3132",
+                      "surface-tint": "#3b6474",
+                      "secondary-container": "#abe5fe",
+                      "outline-variant": "#c1c7cb",
+                      "secondary-fixed": "#b9eaff",
+                      "on-tertiary-fixed": "#2f1500",
+                      "surface-dim": "#d7dadb",
+                      "surface": "#f7fafb",
+                      "outline": "#71787c",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#2b687d",
+                      "on-background": "#181c1d",
+                      "surface-container-high": "#e5e9ea",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffdcc3",
+                      "primary": "#002632",
+                      "primary-container": "#0f3d4c",
+                      "on-primary-container": "#7fa8b9",
+                      "on-tertiary-fixed-variant": "#633e1f",
+                      "primary-fixed": "#bfe9fc",
+                      "background": "#f7fafb",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#224c5b",
+                      "inverse-on-surface": "#eef1f2",
+                      "surface-container-low": "#f1f4f5",
+                      "on-surface-variant": "#41484b",
+                      "surface-container": "#ebeeef",
+                      "on-secondary-fixed-variant": "#004d61",
+                      "on-primary-fixed": "#001f29",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#c99771",
+                      "surface-container-highest": "#e0e3e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "48px",
+                      "unit": "8px",
+                      "card-padding": "24px",
+                      "container-margin": "24px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "display": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<script src="../OHI-KNOWLEDGE/knowledge-base.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-engine.js"></script>
+<script src="../OHI-KNOWLEDGE/ohi-ui-integration.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[90px] font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-highest shadow-sm docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center w-full px-card-padding h-touch-target">
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary">
+                OHI
+            </div>
+<div class="flex items-center gap-4">
+<div class="text-label-sm font-label-sm text-on-surface-variant flex flex-col items-end">
+<span>English | தமிழ்</span>
+</div>
+<button aria-label="language" class="text-primary dark:text-inverse-primary hover:bg-surface-variant dark:hover:bg-inverse-surface transition-colors p-2 rounded-full h-touch-target w-touch-target flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+</div>
+</div>
+</header>
+<main class="px-gutter py-6 max-w-lg mx-auto flex flex-col gap-6">
+<!-- User Profile & Context -->
+<section class="flex items-center gap-4">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-outline-variant shadow-sm" data-alt="A highly detailed close-up portrait of an Indian male quarry worker in his 40s. He is wearing a slightly dusty high-visibility orange safety vest over a rugged work shirt. The lighting is natural, bright daylight, creating a realistic and approachable but resilient mood. The background is softly blurred to keep focus on the subject. High quality, photorealistic, cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL6qyutebGZ1COOWHMOCKgFWB9pGOXEZjl4LWX-VdQFgz4w2r4NjMn9gu3btilC8Zymp3G6tA3IxKzb9PJB5Dg0lH4pcqxZk4atle22BPqbqG1kl8oh_5lkVt3WTNiPyR8SaV_lxig7BIJQ16hY3INZ4SbpaI5l4p6XYQSDHbQj_CymrlP2qerWTRoeBzXs32SIs8NieVYnD2lDSZkuc_-XPLVDiVo46LEbPKOJi6UbhRdfKPVjRO9Sw"/>
+<div>
+<h1 class="text-headline-md font-headline-md text-primary">Ravi Kumar 👋</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">வணக்கம் ரவி</p>
+<div class="flex items-center gap-1 mt-1 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">work</span>
+<span>Quarry Worker, Quarry A</span>
+</div>
+</div>
+</section>
+<!-- Risk Card (High Emphasis) -->
+<section class="bg-error-container rounded-xl p-card-padding shadow-sm border border-error-container flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-error-container flex items-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+                        HIGH RISK
+                    </h2>
+<p class="text-label-md font-label-md text-on-error-container mt-1 opacity-90">OHI Screening Risk (NOT a diagnosis)</p>
+</div>
+<div class="text-display font-display text-error">
+                    76<span class="text-headline-md font-headline-md text-on-error-container opacity-75">/100</span>
+</div>
+</div>
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none text-label-md font-label-md text-on-error-container bg-surface/50 rounded-lg p-3 hover:bg-surface/80 transition-colors h-touch-target">
+<span class="font-bold">Why is my risk high?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-3 text-body-md font-body-md text-on-error-container mt-2">
+                    Recent elevated dust exposure combined with reported respiratory symptoms has increased your overall screening score.
+                </div>
+</details>
+</section>
+<!-- Recent Alert -->
+<section class="bg-tertiary-fixed rounded-xl p-4 shadow-sm border border-tertiary-fixed-dim flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pulmonology</span>
+</div>
+<div>
+<h3 class="text-label-md font-label-md font-bold text-on-tertiary-fixed-variant">Recent Alert</h3>
+<p class="text-body-md font-body-md text-on-tertiary-fixed-variant">⚠️ Increasing respiratory symptoms detected in recent check-ins.</p>
+</div>
+</section>
+<!-- Health Check Call-to-Action -->
+<section>
+<button class="w-full bg-primary text-on-primary rounded-xl h-[64px] flex items-center justify-center gap-3 shadow-lg hover:bg-primary-container hover:text-on-primary-container transition-colors font-headline-md text-headline-md">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">assignment_add</span>
+                Start Today's Health Check
+            </button>
+</section>
+<!-- Exposure Summary -->
+<section>
+<h3 class="text-headline-md font-headline-md text-primary mb-4">Exposure Summary</h3>
+<div class="grid grid-cols-3 gap-3">
+<!-- Dust -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2 border-t-4 border-error shadow-sm">
+<span class="material-symbols-outlined text-error text-[32px]">air</span>
+<span class="text-label-sm font-label-sm text-on-surface">Dust</span>
+<span class="text-label-md font-label-md font-bold text-error bg-error-container px-2 py-1 rounded-full w-full">High</span>
+</div>
+<!-- Noise -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2 border-t-4 border-tertiary-container shadow-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[32px]">volume_up</span>
+<span class="text-label-sm font-label-sm text-on-surface">Noise</span>
+<span class="text-label-md font-label-md font-bold text-tertiary-container bg-tertiary-fixed px-2 py-1 rounded-full w-full">Medium</span>
+</div>
+<!-- Chemical -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2 border-t-4 border-secondary shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[32px]">science</span>
+<span class="text-label-sm font-label-sm text-on-surface">Chemical</span>
+<span class="text-label-md font-label-md font-bold text-secondary bg-secondary-container px-2 py-1 rounded-full w-full">Low</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section>
+<h3 class="text-headline-md font-headline-md text-primary mb-4">Quick Actions</h3>
+<div class="grid grid-cols-3 gap-3">
+<button class="bg-surface-container-highest rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-outline-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">badge</span>
+<span class="text-label-sm font-label-sm text-on-surface text-center">Exposure Passport</span>
+</button>
+<button class="bg-surface-container-highest rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-outline-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">trending_up</span>
+<span class="text-label-sm font-label-sm text-on-surface text-center">Health Trends</span>
+</button>
+<button class="bg-surface-container-highest rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-outline-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">id_card</span>
+<span class="text-label-sm font-label-sm text-on-surface text-center">Worker ID</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface shadow-[0_-4px_20px_rgba(15,61,76,0.05)] docked full-width bottom-0 fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-2 pb-safe md:hidden">
+<!-- Active: Home -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-2xl px-4 py-1 hover:text-primary dark:hover:text-inverse-primary scale-90 transition-transform h-touch-target min-w-[64px]">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</button>
+<!-- Inactive: Health -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary h-touch-target min-w-[64px]">
+<span class="material-symbols-outlined text-[24px]">medical_services</span>
+<span class="text-label-sm font-label-sm mt-1">Health</span>
+</button>
+<!-- Inactive: Exposure -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary h-touch-target min-w-[64px]">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+<span class="text-label-sm font-label-sm mt-1">Exposure</span>
+</button>
+<!-- Inactive: AI -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary h-touch-target min-w-[64px]">
+<span class="material-symbols-outlined text-[24px]">smart_toy</span>
+<span class="text-label-sm font-label-sm mt-1">AI</span>
+</button>
+<!-- Inactive: Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-inverse-primary h-touch-target min-w-[64px]">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

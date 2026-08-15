@@ -1,0 +1,175 @@
+{
+  "rules": [
+    {
+      "question_id": "q_emergency_check",
+      "branches": [
+        {"condition": "yes", "next_question": "emergency_terminate"},
+        {"condition": "no", "next_question": "q_main_symptom"}
+      ]
+    },
+    {
+      "question_id": "q_main_symptom",
+      "branches": [
+        {"condition": "cough", "next_question": "q_cough_work_related"},
+        {"condition": "body_pain", "next_question": "q_back_pain_present"},
+        {"condition": "hand_pain", "next_question": "q_hand_pain_details"},
+        {"condition": "eye_irritation", "next_question": "q_eye_irritation_details"},
+        {"condition": "hearing_difficulty", "next_question": "q_hearing_details"},
+        {"condition": "skin_rash", "next_question": "q_skin_details"},
+        {"condition": "fatigue", "next_question": "q_ppe_use"},
+        {
+          "condition": "none",
+          "next_question_by_occupation": {
+            "mining_quarry": "q_cough_present",
+            "construction": "q_back_pain_present",
+            "welding_fabrication": "q_eye_irritation_details",
+            "textile": "q_cough_present",
+            "chemical_industrial": "q_cough_present",
+            "default": "q_ppe_use"
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "q_cough_present",
+      "branches": [
+        {"condition": "yes", "next_question": "q_cough_work_related"},
+        {"condition": "sometimes", "next_question": "q_cough_work_related"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_cough_work_related",
+      "branches": [
+        {"condition": "yes", "next_question": "q_cough_after_work"},
+        {"condition": "sometimes", "next_question": "q_cough_after_work"},
+        {"condition": "no", "next_question": "q_breath_difficulty"}
+      ]
+    },
+    {
+      "question_id": "q_cough_after_work",
+      "branches": [
+        {"condition": "always", "next_question": "q_breath_difficulty"},
+        {"condition": "yes", "next_question": "q_breath_difficulty"},
+        {"condition": "sometimes", "next_question": "q_breath_difficulty"},
+        {"condition": "no", "next_question": "q_breath_difficulty"}
+      ]
+    },
+    {
+      "question_id": "q_breath_difficulty",
+      "branches": [
+        {"condition": "always", "next_question": "q_phlegm_present"},
+        {"condition": "yes", "next_question": "q_phlegm_present"},
+        {"condition": "sometimes", "next_question": "q_phlegm_present"},
+        {"condition": "no", "next_question": "q_phlegm_present"}
+      ]
+    },
+    {
+      "question_id": "q_phlegm_present",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_back_pain_present",
+      "branches": [
+        {"condition": "yes", "next_question": "q_pain_worse_work"},
+        {"condition": "sometimes", "next_question": "q_pain_worse_work"},
+        {"condition": "no", "next_question": "q_standing_difficulty"}
+      ]
+    },
+    {
+      "question_id": "q_pain_worse_work",
+      "branches": [
+        {"condition": "always", "next_question": "q_pain_improve_rest"},
+        {"condition": "yes", "next_question": "q_pain_improve_rest"},
+        {"condition": "sometimes", "next_question": "q_pain_improve_rest"},
+        {"condition": "no", "next_question": "q_pain_improve_rest"}
+      ]
+    },
+    {
+      "question_id": "q_pain_improve_rest",
+      "branches": [
+        {"condition": "always", "next_question": "q_standing_difficulty"},
+        {"condition": "yes", "next_question": "q_standing_difficulty"},
+        {"condition": "no", "next_question": "q_standing_difficulty"}
+      ]
+    },
+    {
+      "question_id": "q_standing_difficulty",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "sometimes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_hand_pain_details",
+      "branches": [
+        {"condition": "yes", "next_question": "q_numbness_tingling"},
+        {"condition": "sometimes", "next_question": "q_numbness_tingling"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_numbness_tingling",
+      "branches": [
+        {"condition": "yes", "next_question": "q_grip_weakness"},
+        {"condition": "no", "next_question": "q_grip_weakness"}
+      ]
+    },
+    {
+      "question_id": "q_grip_weakness",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "sometimes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_eye_irritation_details",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_hearing_details",
+      "branches": [
+        {"condition": "always", "next_question": "q_ringing_ears"},
+        {"condition": "yes", "next_question": "q_ringing_ears"},
+        {"condition": "sometimes", "next_question": "q_ringing_ears"},
+        {"condition": "no", "next_question": "q_ringing_ears"}
+      ]
+    },
+    {
+      "question_id": "q_ringing_ears",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_skin_details",
+      "branches": [
+        {"condition": "always", "next_question": "q_ppe_use"},
+        {"condition": "yes", "next_question": "q_ppe_use"},
+        {"condition": "no", "next_question": "q_ppe_use"}
+      ]
+    },
+    {
+      "question_id": "q_ppe_use",
+      "branches": [
+        {"condition": "always", "next_question": "complete_screening"},
+        {"condition": "sometimes", "next_question": "complete_screening"},
+        {"condition": "never", "next_question": "complete_screening"}
+      ]
+    }
+  ]
+}

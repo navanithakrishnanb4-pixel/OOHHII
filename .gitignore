@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+build/
+target/
+
+# Environment / secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+
+# Gemini API key config (real key lives here for local demo use only —
+# commit gemini-config.example.js instead, never this file)
+**/OHI-KNOWLEDGE/gemini-config.js
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

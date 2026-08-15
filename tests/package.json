@@ -1,0 +1,12 @@
+{
+  "name": "ohi-engine-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Headless regression tests for the OHI branching engine and page bindings (jsdom-based, no real browser required).",
+  "scripts": {
+    "test": "node run_all.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
+}

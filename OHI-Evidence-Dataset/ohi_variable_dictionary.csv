@@ -1,0 +1,55 @@
+variable,description,source_file,use_in_ohi
+RIDAGEYR,Age in years at screening,DEMO_G,candidate evidence variable
+RIAGENDR,Gender,DEMO_G,candidate evidence variable
+SIALANG,Language used for Sample Person interview,DEMO_G,candidate evidence variable
+OCD150,Type of work done last week,OCQ_G,candidate evidence variable
+OCQ180,Hours worked last week at all jobs,OCQ_G,candidate evidence variable
+OCQ210,Usually work 35 or more hours per week,OCQ_G,candidate evidence variable
+OCD231,Industry group code: current job,OCQ_G,candidate evidence variable
+OCD241,Occupation group code: current job,OCQ_G,candidate evidence variable
+OCQ260,Description of job/work situation,OCQ_G,candidate evidence variable
+OCD270,Number of months working in the main job,OCQ_G,candidate evidence variable
+OCQ275,Has anyone smoked where you work?,OCQ_G,candidate evidence variable
+OCD390G,Kind of work you have done the longest,OCQ_G,candidate evidence variable
+OCD391,Industry group code: longest job,OCQ_G,candidate evidence variable
+OCD392,Occupation group code: longest job,OCQ_G,candidate evidence variable
+OCD395,Duration of longest job (months),OCQ_G,candidate evidence variable
+OCQ510,Ever had work exposure to mineral dusts?,OCQ_G,candidate evidence variable
+OCQ520,Number of years exposed to mineral dusts,OCQ_G,candidate evidence variable
+OCQ530,Ever had work exposure to organic dusts?,OCQ_G,candidate evidence variable
+OCQ540,Number of years exposed to organic dusts,OCQ_G,candidate evidence variable
+OCQ550,Ever exposed to exhaust fumes at work?,OCQ_G,candidate evidence variable
+OCQ560,Number of years exposed to exhaust fumes,OCQ_G,candidate evidence variable
+OCQ570,Ever had work exposure to other fumes?,OCQ_G,candidate evidence variable
+OCQ580,Number of years exposed to other fumes,OCQ_G,candidate evidence variable
+PFQ049,Limitations keeping you from working,PFQ_G,candidate evidence variable
+PFQ051,Limited in amount of work you can do,PFQ_G,candidate evidence variable
+PFQ054,Need special equipment to walk,PFQ_G,candidate evidence variable
+PFQ059,"Physical, mental, emotional limitations",PFQ_G,candidate evidence variable
+PFQ061B,Walking for a quarter mile difficulty,PFQ_G,candidate evidence variable
+PFQ061C,Walking up ten steps difficulty,PFQ_G,candidate evidence variable
+PFQ061D,"Stooping, crouching, kneeling difficulty",PFQ_G,candidate evidence variable
+PFQ061E,Lifting or carrying difficulty,PFQ_G,candidate evidence variable
+PFQ061M,Standing for long periods difficulty,PFQ_G,candidate evidence variable
+PFQ061O,Reaching up over head difficulty,PFQ_G,candidate evidence variable
+PFQ061P,Grasp/holding small objects difficulty,PFQ_G,candidate evidence variable
+PFQ061T,Push or pull large objects difficulty,PFQ_G,candidate evidence variable
+RDQ031,Coughing most days - over 3 mo period,RDQ_G,candidate evidence variable
+RDD040,Number of years had cough problem,RDQ_G,candidate evidence variable
+RDQ050,Bring up phlegm most days - 3 mo period,RDQ_G,candidate evidence variable
+RDD060,Number of years bringing up phlegm problem,RDQ_G,candidate evidence variable
+RDQ070,Wheezing or whistling in chest - past year,RDQ_G,candidate evidence variable
+RDQ080,Number of wheezing/whistling attacks past year,RDQ_G,candidate evidence variable
+RDQ090,Wheezing disturb sleep in past year,RDQ_G,candidate evidence variable
+RDQ100,Chest sound wheezy during exercise,RDQ_G,candidate evidence variable
+RDD120,Number of medical visits for wheezing attacks,RDQ_G,candidate evidence variable
+RDQ135,Amount wheezing limits usual activity,RDQ_G,candidate evidence variable
+RDQ137,Number of work/school days lost due to wheezing,RDQ_G,candidate evidence variable
+RDQ140,Had dry cough at night in past year,RDQ_G,candidate evidence variable
+MCQ010,Ever been told you have asthma,MCQ_G,candidate evidence variable
+MCQ035,Still have asthma,MCQ_G,candidate evidence variable
+MCQ040,Asthma episode/attack in past 12 months,MCQ_G,candidate evidence variable
+MCQ160A,Doctor ever said you had arthritis,MCQ_G,candidate evidence variable
+MCQ160G,Doctor ever said you had emphysema,MCQ_G,candidate evidence variable
+MCQ160K,Doctor ever said you had chronic bronchitis,MCQ_G,candidate evidence variable
+MCQ170K,Do you still have chronic bronchitis,MCQ_G,candidate evidence variable
