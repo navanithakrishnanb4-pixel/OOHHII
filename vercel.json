@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/stitch_ohi_worker_health_intelligence/stitch_ohi_worker_health_intelligence/ohi_landing_page/code.html"
+      "destination": "/stitch_ohi_worker_health_intelligence/stitch_ohi_worker_health_intelligence/ohi_landing_page/code.html",
+      "permanent": false
     }
   ]
 }
